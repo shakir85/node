@@ -11,6 +11,6 @@ RUN npm install \
 
 USER node
 
-COPY app.js /node
+COPY app.js ./
 
 CMD [ "node", "./app.js" ]
