@@ -4,11 +4,13 @@ EXPOSE 3000
 
 WORKDIR /node
 
-COPY app.js package.json package-lock.json* ./ 
+COPY package.json package-lock.json* ./ 
 
 RUN npm install \
      && npm cache clean --force
 
 USER node
+
+COPY app.js /node
 
 CMD [ "node", "./app.js" ]
