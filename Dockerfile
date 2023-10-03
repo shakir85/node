@@ -6,6 +6,8 @@ WORKDIR /node
 
 COPY package.json package-lock.json* ./ 
 
+RUN apk add --no-cache tini
+
 RUN npm install \
      && npm cache clean --force
 
@@ -13,4 +15,5 @@ USER node
 
 COPY app.js ./
 
+ENTRYPOINT [ "/sbin/tini", "--" ]
 CMD [ "node", "./app.js" ]
