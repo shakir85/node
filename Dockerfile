@@ -4,7 +4,7 @@ EXPOSE 3000
 
 WORKDIR /node
 
-COPY package.json package-lock.json* ./ 
+COPY package*.json ./ 
 
 RUN apk add --no-cache tini
 
