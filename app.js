@@ -69,6 +69,10 @@ app.delete("/messages/:id", function (req, res) {
   }
 });
 
+app.get("/healthz", function (req, res) {
+  res.json({ status: "Server is healthy" });
+});
+
 app.listen(3000, function () {
   console.log("Server is running...");
 });
