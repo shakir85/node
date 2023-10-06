@@ -5,6 +5,11 @@ const bodyPasser = require("body-parser");
 let messages = [];
 let id = 1;
 
+process.on("SIGTERM", () => {
+  console.log("Received SIGTERM signal. Gracefully shutting down...");
+  process.exit(0);
+});
+
 app.use(bodyPasser.json());
 
 app.get("/", function (req, res) {
